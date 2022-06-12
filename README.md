@@ -1,4 +1,4 @@
 # project
-  # node_backend
-  # vue_frontend
+  - node_backend
+  - vue_frontend
   
