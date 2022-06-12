@@ -1,4 +1,4 @@
-# project
+# infotech academy project
   - node_backend
   - vue_frontend
   
