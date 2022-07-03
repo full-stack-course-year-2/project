@@ -1,11 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const mongoose = require("mongoose");
+const cors = require("cors");
+
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
 
 const app = express();
 const PORT = process.env.PORT;
 const mongoURL = process.env.MongoURL;
+
+app.use(cors(corsOptions));
 
 // routing section
 const usersRoutes = require("./routes/usersRoutes");
