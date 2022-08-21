@@ -14,10 +14,14 @@ const app = express();
 const PORT = process.env.PORT;
 const mongoURL = process.env.MongoURL;
 
+app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 // routing section
 const usersRoutes = require("./routes/usersRoutes");
+const todosRoutes = require("./routes/todosRoutes");
+app.use("/users", usersRoutes);
+app.use("/todos", todosRoutes);
 
 // db Config
 mongoose
@@ -26,8 +30,5 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-app.use(bodyParser.json());
-app.use("/users", usersRoutes);
 
 app.listen(PORT, console.log(`Server is running at PORT: ${PORT}`));
